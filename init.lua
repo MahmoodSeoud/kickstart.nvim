@@ -1,4 +1,4 @@
---[[
+--[[selction
 
   =====================================================================
   ==================== READ THIS BEFORE CONTINUING ====================
@@ -387,17 +387,28 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        --
         defaults = {
           mappings = {
             i = {
-              ['<C-j>'] = require('telescope.actions').move_selection_next,
-              ['<C-k>'] = require('telescope.actions').move_selection_previous,
+              ['<esc>'] = actions.close,
+              ['<C-j>'] = actions.move_selection_next,
+              ['<C-k>'] = actions.move_selection_previous,
+              ['<C-u>'] = actions.preview_scrolling_up,
+              ['<C-d>'] = actions.preview_scrolling_down,
+              ['<C-s>'] = actions.select_horizontal,
+              ['<C-l>'] = actions.select_vertical,
+              ['<C-h>'] = actions.which_key,
             },
           },
+          initial_mode = 'insert',
+          scroll_strategy = 'cycle',
+          selection_strategy = 'reset',
+          sorting_strategy = 'descending',
+          layout_strategy = 'vertical',
         },
         pickers = {},
         extensions = {
