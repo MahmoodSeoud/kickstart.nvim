@@ -1,4 +1,4 @@
---[[selction
+--[[
 
   =====================================================================
   ==================== READ THIS BEFORE CONTINUING ====================
@@ -402,6 +402,10 @@ require('lazy').setup({
               ['<C-s>'] = actions.select_horizontal,
               ['<C-l>'] = actions.select_vertical,
               ['<C-h>'] = actions.which_key,
+              ['<C-n>'] = false, -- Unbind Ctrl-n
+              ['<C-p>'] = false, -- Unbind Ctrl-p
+              ['<C-x>'] = false, -- Unbind Ctrl-x
+              ['<C-v>'] = false, -- Unbind Ctrl-v
             },
           },
           initial_mode = 'insert',
